@@ -1,0 +1,29 @@
+﻿@page
+@model RedirectPage.Pages.CreatedModel
+@{
+
+}
+
+<h2>Redirect created!</h2>
+
+<input type="text" readonly="readonly" value="https://@Request.Host/r/@Request.Query["name"]" id="poggers"> <br />
+
+<button onclick="myPoggers()">Copy</button>
+
+<h4><a href="/">Create another</a></h4>
+
+<script>
+    var pog = document.getElementById("poggers");
+    pog.style.width = ((pog.value.length + 1) * 8) + 'px';
+    function myPoggers() {
+        /* Get the poggers */
+        var copyPoggers = document.getElementById("poggers");
+
+        /* Select the poggies field */
+        copyPoggers.select();
+        copyPoggers.setSelectionRange(0, 99999); /*For mobile poggers*/
+
+        /* poggers command */
+        document.execCommand("copy");
+    }
+</script>

@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<meta property="og:title" content="Based redirecting thing" />
+<form method="post">
+    <input name="Url" type="text" id="Url" placeholder="Url" /><br />
+
+    <input name="Title" type="text" id="Title" placeholder="Title" /><br />
+
+    <input name="ImageUrl" type="text" id="ImageUrl" placeholder="ImageUrl" /><br />
+
+    <p>Description:</p>
+    <textarea name="Description" type="text" placeholder="description" style="width: 100%;" rows="4" > </textarea><br />
+
+    <button formmethod="post" , type="submit">poggers button</button>
+</form>
