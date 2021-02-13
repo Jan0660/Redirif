@@ -30,12 +30,17 @@ namespace RedirectPage.Controllers
                 {
                     ContentType = "text/html",
                     StatusCode = (int)HttpStatusCode.OK,
-                    Content = boil($@"<meta property=""og:title"" content=""{redir.Title}"" />
-<meta property=""og:description"" content=""{redir.Description}"" />
-<meta name=""twitter:card"" content=""bruh"" />
-<meta name=""twitter:image"" content=""{redir.ImageUrl}"" />")
+                    Content = boil($@"<meta property=""og:title"" content=""{redir.Title.SanitizeHtml()}"" />
+<meta property=""og:description"" content=""{redir.Description.SanitizeHtml()}"" />
+<meta property=""og:site_name"" content=""{redir.SiteName.SanitizeHtml()}"" />
+<meta name=""twitter:image"" content=""{redir.ImageUrl.SanitizeHtml()}"" />
+<meta name=""theme-color"" content=""#{redir.EmbedColor.SanitizeHtml()}"" />
+<meta data-react-helmet=""true"" name=""msapplication-TileColor"" content=""#{redir.EmbedColor.SanitizeHtml()}"">
+<meta data-react-helmet=""true"" name=""theme-color"" content=""#{redir.EmbedColor.SanitizeHtml()}"">" +
+                                                                        (redir.SmallImage ? "" : @$"<meta name=""twitter:card"" content=""summary_large_image"">"))
                 };
             }
+            // <meta data-react-helmet=""true"" name=""msapplication-TileColor"" content=""#cb3837"">
             Response.Redirect(redir.Url);
             Console.WriteLine("based human");
             return Content("poggers");

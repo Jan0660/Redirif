@@ -11,5 +11,8 @@ namespace RedirectPage
         public string Title;
         public string ImageUrl;
         public string Description;
+        public bool SmallImage;
+        public string EmbedColor;
+        public string SiteName;
     }
 }

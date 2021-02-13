@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RedirectPage
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -26,5 +26,13 @@ namespace RedirectPage
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        public static string SanitizeHtml(this string str)
+            => str == null ? "" : str.Replace("&", "&amp;")
+                .Replace("<", "&lt")
+                .Replace(">", "&gt")
+                .Replace("\"", "&quot;")
+                //.Replace("'", "#039;")
+            ;
     }
 }

@@ -3,17 +3,47 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<meta property="og:title" content="Based redirecting thing" />
+<meta property="og:title" content="Redirif"/>
+<meta property="og:description" content="A url shortener that takes advantage of html meta tags to serve special embeds to Discord."/>
+<meta property="og:site_name" content="Made by Jan0660"/>
+<meta name="twitter:image" content="/elseif.png"/>
+@* <meta name="theme-color" content="#D8A0DF" /> *@
+@* <meta data-react-helmet="true" name="msapplication-TileColor" content="#D8A0DF"> *@
+<meta data-react-helmet="true" name="theme-color" content="#D8A0DF">
 <form method="post">
-    <input name="Url" type="text" id="Url" placeholder="Url" /><br />
+    <input name="Url" type="text" id="Url" placeholder="Url" class="text-input margin-bruh"/><br/>
 
-    <input name="Title" type="text" id="Title" placeholder="Title" /><br />
+    <input name="Title" type="text" id="Title" placeholder="Title" class="text-input margin-bruh"/><br/>
 
-    <input name="ImageUrl" type="text" id="ImageUrl" placeholder="ImageUrl" /><br />
+    <input name="ImageUrl" type="text" id="ImageUrl" placeholder="ImageUrl" class="text-input margin-bruh"/><br/>
+
+    <input type="checkbox" id="SmallImage" name="SmallImage" value="true" placeholder="SmallImage" class="margin-bruh">
+
+    <label for="SmallImage">Small Image</label><br>
+
+    <input name="EmbedColor" type="text" id="EmbedColor" placeholder="Embed color in hex" class="text-input margin-bruh"/><br/>
+
+    <input name="SiteName" type="text" id="SiteName" placeholder="Site Name" class="text-input margin-bruh"/><br/>
+
 
     <p>Description:</p>
-    <textarea name="Description" type="text" placeholder="description" style="width: 100%;" rows="4" > </textarea><br />
+    <textarea name="Description" type="text" placeholder="description" style="width: 100%;" rows="4" > </textarea><br/>
 
-    <button formmethod="post" , type="submit">poggers button</button>
+    <button method="post" type="submit" class="poggers-button">Poggers button!</button>
 </form>
+
+<h2 class="text-center">How does it look?</h2>
+
+<img alt="embed look" src="/showoff.png" class="image-center"/>
+
+<h2 class="text-center">Deploy it yourself!</h2>
+
+<p class="text-center">
+    The source code for this website is contained in <a href="https://gitea.jan0660.xyz/Jan/RedirectPage" style="color: #0366d6;">this git repository</a>
+    along with a deployable Dockerfile and docker-compose.yaml!
+</p>
+
+<h6 class="text-center" style="margin-top: 30px;">
+    Powered by ASP.NET 5. If you have any issues please visit the
+    <a href="https://discord.gg/zBbV56e" style="color: #0366d6;"> support discord server</a> and ping <code>else if(){}#5199</code>.
+</h6>

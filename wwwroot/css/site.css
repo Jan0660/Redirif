@@ -59,8 +59,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
+  background-color: #383838;
   margin-bottom: 60px;
+  background-image: url("https://yandere-simulator.com/memes/elseif.png");
 }
 .footer {
   position: absolute;
@@ -68,4 +69,58 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+h1, h2, h3, h4, h5, h6, p, a, .sidebar a, td, td tr, label, tr, .footer-text {
+  color: #efefef;
+}
+
+textarea, .text-input{
+  background-color: #36383d;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  /*border: none;*/
+  border: 2px solid #FFFF;
+}
+
+.text-input{
+  width: 70%;
+}
+
+::placeholder{
+  color: #efefef;
+}
+
+.main-container{
+  margin-top: 90px;
+  border-radius: 10px;
+  background-color: #36383d;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.margin-bruh{
+  margin-bottom: 8px;
+}
+
+.margin-bruh:-webkit-autofill,
+.margin-bruh:-webkit-autofill:hover,
+.margin-bruh:-webkit-autofill:active,
+.margin-bruh:-webkit-autofill:focus
+{
+
+  /*background-color: #36383d;*/
+  /*-webkit-text-fill-color: #36383d;*/
+  -webkit-text-fill-color: white;
+  color: white;
+  -webkit-box-shadow: 0 0 0 30px #36383d inset !important;
+}
+
+.poggers-button{
+  border-radius: 5px;
+}
+
+.image-center{
+  margin: auto;
+  display: block;
 }
