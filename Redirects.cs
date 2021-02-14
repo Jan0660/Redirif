@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+
 namespace RedirectPage
 {
     public static class Redirects
@@ -13,7 +14,10 @@ namespace RedirectPage
         public static void Add(string name, RedirectInfo info)
         {
             Dict[name] = info;
-            File.WriteAllText("./redirects.json", JsonConvert.SerializeObject(Dict));
+            File.WriteAllText("./redirects.json", JsonConvert.SerializeObject(Dict, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            }));
         }
 
         public static bool Exists(string name)

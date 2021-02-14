@@ -12,4 +12,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="redirects.json" />
+  </ItemGroup>
+
 </Project>
