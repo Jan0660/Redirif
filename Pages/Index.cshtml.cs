@@ -29,6 +29,11 @@ namespace RedirectPage.Pages
 
         public void OnPost(string ImageUrl, string Description, bool SmallImage, string EmbedColor, string SiteName)
         {
+            if (Url == null)
+            {
+                Response.Redirect("/error");
+                return;
+            }
             string name = null;
             var rng = new Random();
             while (name == null || Redirects.Exists(name))

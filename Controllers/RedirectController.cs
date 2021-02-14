@@ -37,10 +37,9 @@ namespace RedirectPage.Controllers
 <meta name=""theme-color"" content=""#{redir.EmbedColor.SanitizeHtml()}"" />
 <meta data-react-helmet=""true"" name=""msapplication-TileColor"" content=""#{redir.EmbedColor.SanitizeHtml()}"">
 <meta data-react-helmet=""true"" name=""theme-color"" content=""#{redir.EmbedColor.SanitizeHtml()}"">" +
-                                                                        (redir.SmallImage ? "" : @$"<meta name=""twitter:card"" content=""summary_large_image"">"))
+                                                                  (redir.SmallImage ? "" : @$"<meta name=""twitter:card"" content=""summary_large_image"">"))
                 };
             }
-            // <meta data-react-helmet=""true"" name=""msapplication-TileColor"" content=""#cb3837"">
             Response.Redirect(redir.Url);
             Console.WriteLine("based human");
             return Content("poggers");

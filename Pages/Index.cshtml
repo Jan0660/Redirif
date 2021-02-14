@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    // ViewData["Title"] = "Home page";
 }
 <meta property="og:title" content="Redirif"/>
 <meta property="og:description" content="A url shortener that takes advantage of html meta tags to serve special embeds to Discord."/>
@@ -29,8 +29,16 @@
     <p>Description:</p>
     <textarea name="Description" type="text" placeholder="description" style="width: 100%;" rows="4" > </textarea><br/>
 
-    <button method="post" type="submit" class="poggers-button">Poggers button!</button>
+    <button method="post" type="submit" class="poggers-button" id="poggersButton" disabled>Poggers button!</button>
 </form>
+
+<script>
+    const poggersButton = document.getElementById('poggersButton');
+    const UrlInput = document.getElementById('Url');
+    UrlInput.addEventListener('input', ev => {
+        poggersButton.disabled = ev.target.value === "";
+    });
+</script>
 
 <h2 class="text-center">How does it look?</h2>
 
@@ -44,6 +52,6 @@
 </p>
 
 <h6 class="text-center" style="margin-top: 30px;">
-    Powered by ASP.NET 5. If you have any issues please visit the
+    Powered by ASP.NET @Environment.Version.ToString(). If you have any issues please visit the
     <a href="https://discord.gg/zBbV56e" style="color: #0366d6;"> support discord server</a> and ping <code>else if(){}#5199</code>.
 </h6>
