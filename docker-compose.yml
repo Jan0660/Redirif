@@ -4,3 +4,5 @@ services:
     build: .
     ports:
       - "9030:5000"
+    volumes:
+      - ./data:/app/data

@@ -15,8 +15,14 @@ namespace RedirectPage
     {
         public static void Main(string[] args)
         {
+            if(!Directory.Exists("./data"))
+                Directory.CreateDirectory("./data");
             if (File.Exists("./redirects.json"))
-                Redirects.Dict = JsonConvert.DeserializeObject<Dictionary<string, RedirectInfo>>(File.ReadAllText("./redirects.json"));
+            {
+                File.Move("./redirects.json", "./data/redirects.json");
+            }
+            if(File.Exists("./data/redirects.json"))
+                Redirects.Dict = JsonConvert.DeserializeObject<Dictionary<string, RedirectInfo>>(File.ReadAllText("./data/redirects.json"));
             CreateHostBuilder(args).Build().Run();
         }
 

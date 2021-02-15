@@ -14,7 +14,7 @@ namespace RedirectPage
         public static void Add(string name, RedirectInfo info)
         {
             Dict[name] = info;
-            File.WriteAllText("./redirects.json", JsonConvert.SerializeObject(Dict, new JsonSerializerSettings
+            File.WriteAllText("./data/redirects.json", JsonConvert.SerializeObject(Dict, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore
             }));
