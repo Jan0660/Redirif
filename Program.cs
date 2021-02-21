@@ -13,6 +13,7 @@ namespace RedirectPage
 {
     public static class Program
     {
+        public static string ApiMasterToken = null;
         public static void Main(string[] args)
         {
             if(!Directory.Exists("./data"))
@@ -23,6 +24,19 @@ namespace RedirectPage
             }
             if(File.Exists("./data/redirects.json"))
                 Redirects.Dict = JsonConvert.DeserializeObject<Dictionary<string, RedirectInfo>>(File.ReadAllText("./data/redirects.json"));
+            if(!File.Exists("./data/tokens.json"))
+                File.WriteAllText("./data/tokens.json", "[]");
+            ApiTokens.Tokens = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText("./data/tokens.json"));
+                var masterTokenVar = Environment.GetEnvironmentVariable("API_MASTER_TOKEN");
+            if(masterTokenVar == null)
+                Console.WriteLine("`API_MASTER_TOKEN` is not set in your environment variables, redirect/* and master/* API endpoints disabled.");
+            else
+            {
+                ApiMasterToken = masterTokenVar;
+                Console.WriteLine($"API enabled with {ApiTokens.Tokens.Count} regular api token(s).");
+                if(ApiMasterToken.Length < 16)
+                    Console.WriteLine("Short master API token, recommended is a long string of random characters.");
+            }
             CreateHostBuilder(args).Build().Run();
         }
 

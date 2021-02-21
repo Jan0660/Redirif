@@ -34,16 +34,7 @@ namespace RedirectPage.Pages
                 Response.Redirect("/error");
                 return;
             }
-            string name = null;
-            var rng = new Random();
-            while (name == null || Redirects.Exists(name))
-            {
-                byte[] bytes = new byte[3];
-                rng.NextBytes(bytes);
-                name = Convert.ToBase64String(bytes).Replace("/", "-").Replace("+", "_");
-            }
-
-            Redirects.Add(name, new RedirectInfo
+            var name = Redirects.Create(new RedirectInfo
             {
                 Url = Url,
                 Title = Title,

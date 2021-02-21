@@ -24,5 +24,20 @@ namespace RedirectPage
         {
             return name == null ? false : Dict.ContainsKey(name);
         }
+
+        public static string Create(RedirectInfo redirectInfo)
+        {
+            string name = null;
+            var rng = new Random();
+            while (name == null || Redirects.Exists(name))
+            {
+                byte[] bytes = new byte[3];
+                rng.NextBytes(bytes);
+                name = Convert.ToBase64String(bytes).Replace("/", "-").Replace("+", "_");
+            }
+
+            Redirects.Add(name, redirectInfo);
+            return name;
+        }
     }
 }
