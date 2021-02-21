@@ -14,6 +14,7 @@ namespace RedirectPage
     public static class Program
     {
         public static string ApiMasterToken = null;
+        public static bool ShowSupport = true;
         public static void Main(string[] args)
         {
             if(!Directory.Exists("./data"))
@@ -37,6 +38,9 @@ namespace RedirectPage
                 if(ApiMasterToken.Length < 16)
                     Console.WriteLine("Short master API token, recommended is a long string of random characters.");
             }
+
+            if (Environment.GetEnvironmentVariable("SHOW_SUPPORT") == "0")
+                ShowSupport = false;
             CreateHostBuilder(args).Build().Run();
         }
 
