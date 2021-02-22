@@ -34,7 +34,7 @@ namespace RedirectPage
             else
             {
                 ApiMasterToken = masterTokenVar;
-                Console.WriteLine($"API enabled with {ApiTokens.Tokens.Count} regular api token(s).");
+                Console.WriteLine($"API enabled with {ApiTokens.Tokens.Count} nerd API token(s).");
                 if(ApiMasterToken.Length < 16)
                     Console.WriteLine("Short master API token, recommended is a long string of random characters.");
             }

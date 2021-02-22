@@ -10,9 +10,11 @@ namespace RedirectPage.Pages
 {
     public class IndexModel : PageModel
     {
+#pragma warning disable 8632
         [BindProperty(Name = "Title")] public string? Title { get; set; }
 
-        [BindProperty(Name = "Url")] public string? Url { get; set; }
+        [BindProperty(Name = "Url")] public new string? Url { get; set; }
+#pragma warning restore 8632
 
         //[BindProperty(Name = "ImageUrl")]
         //public string? ImageUrl { get; set; }
@@ -34,6 +36,7 @@ namespace RedirectPage.Pages
                 Response.Redirect("/error");
                 return;
             }
+
             var name = Redirects.Create(new RedirectInfo
             {
                 Url = Url,
