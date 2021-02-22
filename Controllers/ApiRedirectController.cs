@@ -24,7 +24,7 @@ namespace RedirectPage.Controllers
             var redirectInfo = JsonConvert.DeserializeObject<RedirectInfo>(json);
             // todo: add checks for too long SiteName, Description etc
             if (redirectInfo.Url == null | redirectInfo.Url == "")
-                return BadRequest("Url cannot be null");
+                return BadRequest("Url must be specified");
             return Content(Redirects.Create(redirectInfo));
         }
 

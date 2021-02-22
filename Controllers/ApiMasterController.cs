@@ -12,6 +12,10 @@ namespace RedirectPage.Controllers
     [Route("/api/master")]
     public class ApiMasterController : Controller
     {
+        private static JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+        {
+            NullValueHandling = NullValueHandling.Ignore
+        };
         public ApiMasterController()
         {
             Console.WriteLine("h");
@@ -47,15 +51,15 @@ namespace RedirectPage.Controllers
             {
                 // returns items starting from <start>
                 if(!Request.Query.ContainsKey("size"))
-                    return JsonConvert.SerializeObject(Redirects.Dict.Skip(int.Parse(Request.Query["start"])));
+                    return JsonConvert.SerializeObject(Redirects.Dict.Skip(int.Parse(Request.Query["start"])), _jsonSerializerSettings);
                 // returns <size> items starting from <start>
                 else
-                    return JsonConvert.SerializeObject(Redirects.Dict.Skip(int.Parse(Request.Query["start"])).Take(int.Parse(Request.Query["size"])));
+                    return JsonConvert.SerializeObject(Redirects.Dict.Skip(int.Parse(Request.Query["start"])).Take(int.Parse(Request.Query["size"])), _jsonSerializerSettings);
             }
             // return first <size> items
             if(Request.Query.ContainsKey("size"))
-                return JsonConvert.SerializeObject(Redirects.Dict.Take(int.Parse(Request.Query["size"])));
-            return JsonConvert.SerializeObject(Redirects.Dict);
+                return JsonConvert.SerializeObject(Redirects.Dict.Take(int.Parse(Request.Query["size"])), _jsonSerializerSettings);
+            return JsonConvert.SerializeObject(Redirects.Dict, _jsonSerializerSettings);
         }
 
         [HttpDelete("deleteRedirect")]
