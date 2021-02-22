@@ -14,7 +14,8 @@ namespace RedirectPage.Controllers
     [EnableCors("BruhPolicy")]
     public class ApiRedirectController : Controller
     {
-        [Microsoft.AspNetCore.Mvc.HttpPost("create")]
+        [HttpPost("create")]
+        [EnableCors("BruhPolicy")]
         public async Task<IActionResult> CreateRedirect()
         {
             string json;

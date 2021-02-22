@@ -20,19 +20,21 @@ namespace RedirectPage.Controllers
         };
         public ApiMasterController()
         {
-            Console.WriteLine("h");
         }
         [HttpGet("list")]
+        [EnableCors("BruhPolicy")]
         public object ListTokens()
         {
             return ApiTokens.Tokens;
         }
 
         [HttpPost("create")]
+        [EnableCors("BruhPolicy")]
         public string CreateNewToken()
             => ApiTokens.Create();
 
         [HttpDelete("delete")]
+        [EnableCors("BruhPolicy")]
         public async Task<IActionResult> DeleteToken()
         {
             using (StreamReader reader = new StreamReader(Request.Body))
@@ -47,6 +49,7 @@ namespace RedirectPage.Controllers
         }
 
         [HttpGet("listRedirects")]
+        [EnableCors("BruhPolicy")]
         public string ListRedirects()
         {
             if (Request.Query.ContainsKey("start"))
@@ -65,6 +68,7 @@ namespace RedirectPage.Controllers
         }
 
         [HttpDelete("deleteRedirect")]
+        [EnableCors("BruhPolicy")]
         public async Task<IActionResult> DeleteRedirect()
         {
             using StreamReader reader = new StreamReader(Request.Body);

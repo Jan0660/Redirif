@@ -11,6 +11,7 @@ namespace RedirectPage.Controllers
     public class ApiController : Controller
     {
         [HttpGet]
+        [EnableCors("BruhPolicy")]
         public object Index()
         {
             Response.ContentType = "application/json";
