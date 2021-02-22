@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using Newtonsoft.Json;
 namespace RedirectPage.Controllers
 {
     [Route("/api/master")]
+    [EnableCors("BruhPolicy")]
     public class ApiMasterController : Controller
     {
         private static JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings

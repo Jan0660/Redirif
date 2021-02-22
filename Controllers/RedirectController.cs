@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace RedirectPage.Controllers
 {
     [Route("/r/")]
+    [EnableCors("BruhPolicy")]
     public class RedirectController : Controller
     {
         const string BoilerPlateStart = @"<!DOCTYPE html>
