@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
 
-namespace RedirectPage
+namespace Redirif
 {
     public static class ApiTokens
     {

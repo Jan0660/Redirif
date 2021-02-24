@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RedirectPage.Controllers
+namespace Redirif.Controllers
 {
     [Route("/api")]
     [EnableCors("BruhPolicy")]

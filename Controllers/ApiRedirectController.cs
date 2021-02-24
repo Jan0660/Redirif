@@ -1,14 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 
-namespace RedirectPage.Controllers
+namespace Redirif.Controllers
 {
     [Route("/api/redirect")]
     [EnableCors("BruhPolicy")]
