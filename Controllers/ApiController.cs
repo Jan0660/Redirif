@@ -19,7 +19,7 @@ namespace Redirif.Controllers
                 AppVersion = Assembly.GetExecutingAssembly().GetName().Version!.ToString(),
                 FrameworkVersion = Environment.Version.ToString(),
                 TotalRedirects = Redirects.Dict.Count,
-                APIEnabled = Program.ApiMasterToken != null
+                APIEnabled = Program.Config.ApiMasterToken != null
             };
         }
     }

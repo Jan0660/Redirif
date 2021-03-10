@@ -31,9 +31,9 @@ namespace Redirif.Controllers
         // this is retarded, makes asp.net return HTTP 400/Bad Request instead of fucking 401/Unauthorized
         public override void OnActionExecuting(ActionExecutingContext ctx)
         {
-            if (Program.ApiMasterToken == null)
+            if (Program.Config.ApiMasterToken == null)
                 throw new Exception("API disabled.");
-            if (!(Request.Headers["Api-Token"] == Program.ApiMasterToken
+            if (!(Request.Headers["Api-Token"] == Program.Config.ApiMasterToken
                 | ApiTokens.Tokens.Contains(Request.Headers["Api-Token"])))
             {
                 throw new Exception("Unauthorized");

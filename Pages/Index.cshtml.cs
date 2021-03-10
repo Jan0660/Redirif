@@ -11,9 +11,6 @@ namespace Redirif.Pages
 
         [BindProperty(Name = "Url")] public new string? Url { get; set; }
 #pragma warning restore 8632
-
-        //[BindProperty(Name = "ImageUrl")]
-        //public string? ImageUrl { get; set; }
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -21,12 +18,20 @@ namespace Redirif.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public ActionResult OnGet()
         {
+            if (Program.Config.ApiOnly)
+                return Redirect("/ApiOnly");
+            return Page();
         }
 
         public void OnPost(string ImageUrl, string Description, bool SmallImage, string EmbedColor, string SiteName)
         {
+            if (Program.Config.ApiOnly)
+            {
+                Response.Redirect("/ApiOnly");
+                return;
+            }
             if (Url == null)
             {
                 Response.Redirect("/error");

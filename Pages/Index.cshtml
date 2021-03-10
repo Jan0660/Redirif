@@ -48,15 +48,15 @@
 <h2 class="text-center">Deploy it yourself!</h2>
 
 <p class="text-center">
-    The source code for this website is contained in <a href="https://github.com/Jan0660/Redirif" style="color: #0366d6;">this git repository</a>
+    The source code for this website is contained in <a href="https://github.com/Jan0660/Redirif">this git repository</a>
     along with a deployable Dockerfile and docker-compose.yaml!
 </p>
 
 <h6 class="text-center" style="margin-top: 30px;">
     Powered by ASP.NET @Environment.Version.ToString().
-    @if (Program.ShowSupport)
+    @if (Program.Config.ShowSupport)
     {
         <text> If you have any issues please visit the
-            <a href="https://discord.gg/zBbV56e" style="color: #0366d6;"> support discord server</a>.</text>
+            <a href="https://discord.gg/zBbV56e"> support discord server</a>.</text>
     }
 </h6>
