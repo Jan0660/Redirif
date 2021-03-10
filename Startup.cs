@@ -22,7 +22,8 @@ namespace Redirif
             services.AddRazorPages();
             services.AddCors(options => options.AddPolicy("BruhPolicy", builder =>
             {
-                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                if(Program.Config.EnableCors)
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
             }));
         }
 
@@ -46,7 +47,8 @@ namespace Redirif
 
             app.UseRouting();
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            if(Program.Config.EnableCors)
+                app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseAuthorization();
 
