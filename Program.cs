@@ -24,7 +24,7 @@ namespace Redirif
             if(!File.Exists("./data/tokens.json"))
                 File.WriteAllText("./data/tokens.json", "[]");
             if(!File.Exists("./data/config.json"))
-                File.WriteAllText("./data/config.json", JsonConvert.SerializeObject(new Configuration()));
+                File.WriteAllText("./data/config.json", JsonConvert.SerializeObject(new Configuration(), Formatting.Indented));
             Config = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText("./data/config.json"));
             ApiTokens.Tokens = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText("./data/tokens.json"));
             var masterTokenVar = Environment.GetEnvironmentVariable("API_MASTER_TOKEN");
@@ -40,9 +40,6 @@ namespace Redirif
                 if(Config.ApiMasterToken.Length < 16)
                     Console.WriteLine("Short master API token, recommended is a long string of random characters.");
             }
-
-            if (Environment.GetEnvironmentVariable("SHOW_SUPPORT") == "0")
-                Config.ShowSupport = false;
             CreateHostBuilder(args).Build().Run();
         }
 

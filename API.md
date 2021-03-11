@@ -1,6 +1,6 @@
 # Redirif API
 Only the `/api` endpoint is enabled without a master token set.
-Other endpoints can be enabled by setting a `API_MASTER_TOKEN` environment variable which will be used as the master API token, which can generate nerd API tokens, so use a random password generator.
+Other endpoints can be enabled by setting the `ApiMasterToken` in `/data/config.json` which will be used as the master API token, which can generate nerd API tokens, so use a random password generator.
 ## Authentication
  - `/api` - Doesn't need any authentication.
  - `/api/redirect/*` - Requires a nerd or master token in the `Api-Token` header.
