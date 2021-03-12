@@ -6,3 +6,4 @@ services:
       - "9030:5000"
     volumes:
       - ./data:/app/data
+    restart: unless-stopped
