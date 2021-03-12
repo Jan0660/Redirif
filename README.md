@@ -1,6 +1,6 @@
 # Redirif
 
-A self-hostable URL shortener that forces chosen metadata to discord.
+A self-hostable URL shortener that sends chosen metadata to Discord instead of wherever you're redirect to.
 
 ## Installation
 
