@@ -21,6 +21,7 @@ namespace Redirif.Controllers
         [Route("/r/{name}")]
         public IActionResult Index(string name)
         {
+            Console.WriteLine(Request.Headers["User-Agent"].ToString());
             RedirectInfo redir;
             try
             {
@@ -74,6 +75,7 @@ namespace Redirif.Controllers
         }
 
         private bool IsNotHuman()
-            => Request.Headers["User-Agent"].ToString().Contains("https://discordapp.com");
+            => Request.Headers["User-Agent"].ToString().Contains("https://discordapp.com")
+             | Request.Headers["User-Agent"].ToString().Contains("Twitterbot");
     }
 }
