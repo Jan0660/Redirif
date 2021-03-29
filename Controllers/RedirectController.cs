@@ -67,6 +67,7 @@ namespace Redirif.Controllers
             return $@"<meta property=""og:title"" content=""{redir.Title.SanitizeHtml()}"" />
 <meta property=""og:description"" content=""{redir.Description.SanitizeHtml()}"" />
 <meta property=""og:site_name"" content=""{redir.SiteName.SanitizeHtml()}"" />
+<meta name=""og:image"" content=""{redir.ImageUrl.SanitizeHtml()}"" />
 <meta name=""twitter:image"" content=""{redir.ImageUrl.SanitizeHtml()}"" />
 <meta name=""theme-color"" content=""#{redir.EmbedColor.SanitizeHtml()}"" />
 <meta data-react-helmet=""true"" name=""msapplication-TileColor"" content=""#{redir.EmbedColor.SanitizeHtml()}"">
